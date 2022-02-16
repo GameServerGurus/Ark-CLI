@@ -55,7 +55,7 @@ namespace ark_admin_manager
                     result = message.ReasonPhrase;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result = "API Url failed. Check that your wrote it correctly else the server might be down.";
             }
@@ -89,7 +89,7 @@ namespace ark_admin_manager
                     result = response.ReasonPhrase;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result = "API Key failed. Check that your wrote it correctly else the server might be down.";
             }
