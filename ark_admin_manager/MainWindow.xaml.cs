@@ -26,7 +26,6 @@ namespace ark_admin_manager
     {
         private static readonly HttpClient client = new HttpClient();
         private static string url = "";
-        private static string key = "";
         private bool authenticated = false;
 
         private string post(string url, FormUrlEncodedContent parameters)
@@ -111,12 +110,10 @@ namespace ark_admin_manager
         private string authenticate(string api_url, string api_key)
         {
             MainWindow.url = api_url;
-            MainWindow.key = api_key;
             var url = String.Format("http://{0}/authenticate", api_url);
             var dict_parameters = new Dictionary<string, string> { { "key", api_key } };
             var parameters = new FormUrlEncodedContent(dict_parameters);
             var message = post(url, parameters);
-            this.authenticated = message.Equals("succses");
             return message;
         }
 
@@ -130,12 +127,21 @@ namespace ark_admin_manager
             if (!input_api.Text.Equals("API Url") && !input_key.Text.Equals("API Key") && !input_api.Text.Equals("") && !input_key.Equals(""))
             {
                 var result = authenticate(input_api.Text, input_key.Text);
-                messages.Text = result;
                 this.authenticated = result.Equals("success");
+                if (this.authenticated)
+                {
+                    LoginControl.Visibility = Visibility.Collapsed;
+                    CommandControl.Visibility = Visibility.Visible;
+                    textbox_commands.Text = "You have successfully logged in";
+                }
+                else
+                {
+                    textbox_connect.Text = "Authentication failed, check your password and url is correct";
+                }
             }
             else
             {
-                messages.Text = "Enter a valid Url and Key";
+                textbox_connect.Text = "Enter a valid Url and Key";
             }
         }
 
@@ -143,16 +149,16 @@ namespace ark_admin_manager
         {
             if (!this.authenticated || MainWindow.url.Equals("") || MainWindow.url.Equals(""))
             {
-                messages.Text = "You must authenticate the API Url and API key first";
+                textbox_commands.Text = "You must authenticate the API Url and API key first";
             }
             else if (!input_command.Text.Equals("Enter admin command here"))
             {
-                messages.Text = command(input_command.Text);
+                textbox_commands.Text = command(input_command.Text);
                 input_command.Text = "";
             }
             else if (input_command.Equals("") || input_command.Text.Equals("Enter admin command here"))
             {
-                messages.Text = "You must enter a command";
+                textbox_commands.Text = "You must enter a command";
             }
         }
 
