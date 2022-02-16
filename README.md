@@ -1,3 +1,3 @@
 # ark_admin_manager
 
-[!Generic Privacy Policy](https://www.privacypolicies.com/generic/)
+##[!Generic Privacy Policy](https://www.privacypolicies.com/generic/)
