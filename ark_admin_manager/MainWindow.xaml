@@ -23,7 +23,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="input_command" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" Margin="10" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="Enter admin command here" GotFocus="Input_command_GotFocus">
+            <TextBox x:Name="input_command" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" Margin="10" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="Enter admin command here" GotFocus="Input_command_GotFocus" LostFocus="Input_command_LostFocus">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10" />
@@ -55,14 +55,14 @@
                             <ColumnDefinition Width="43*"/>
                             <ColumnDefinition Width="48*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="input_api" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="API Url" GotFocus="Input_api_GotFocus" Margin="5" VerticalAlignment="Center">
+                        <TextBox x:Name="input_api" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="API Url" GotFocus="Input_api_GotFocus" Margin="5" VerticalAlignment="Center" LostFocus="Input_api_LostFocus">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="10" />
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                        <TextBox x:Name="input_key" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="API Key" GotFocus="Input_key_GotFocus" Grid.Column="1" Margin="5,5,5,1" VerticalAlignment="Center">
+                        <TextBox x:Name="input_key" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="API Key" GotFocus="Input_key_GotFocus" Grid.Column="1" Margin="5,5,5,1" VerticalAlignment="Center" LostFocus="Input_key_LostFocus">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="10" />
@@ -82,7 +82,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Label x:Name="console" Content="" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label x:Name="messages" Content="" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Label.Resources>
                                 <Style TargetType="Label">
                                     
