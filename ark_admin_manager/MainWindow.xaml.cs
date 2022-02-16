@@ -20,9 +20,48 @@ namespace ark_admin_manager
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_send_Click(object sender, RoutedEventArgs e)
+        {
+            if (!input_command.Text.Equals("Enter admin command here"))
+            {
+                input_command.Text = "";
+            }
+        }
+
+        private void Input_command_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (input_command.Text.Equals("Enter admin command here"))
+            {
+                input_command.Text = "";
+            }
+        }
+        
+        private void Input_api_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (input_api.Text.Equals("API Url"))
+            {
+                input_api.Text = "";
+            }
+        }
+
+        private void Input_key_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (input_key.Text.Equals("API Key"))
+            {
+                input_key.Text = "";
+            }
+        }
+
+        private void Button_connect_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

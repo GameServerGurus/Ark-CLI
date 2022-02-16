@@ -5,8 +5,94 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ark_admin_manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="251.937" Width="800">
     <Grid>
-        
+        <Rectangle Stroke="Black">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF364055" Offset="0"/>
+                    <GradientStop Color="#FF29A7E0" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110*"/>
+                <RowDefinition Height="111*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="input_command" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" Margin="10" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="Enter admin command here" GotFocus="Input_command_GotFocus">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10" />
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="107*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="button_send" Content="Send Command" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35.96" Width="197.89" FontWeight="Bold" BorderBrush="#FF364055" Foreground="White" Background="{x:Null}" BorderThickness="3" Click="Button_send_Click" Grid.Column="1">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="49*"/>
+                        <RowDefinition Height="43*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="43*"/>
+                            <ColumnDefinition Width="48*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="input_api" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="API Url" GotFocus="Input_api_GotFocus" Margin="5" VerticalAlignment="Center">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <TextBox x:Name="input_key" TextWrapping="Wrap" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" SelectionBrush="#FF364055" CaretBrush="White" Text="API Key" GotFocus="Input_key_GotFocus" Grid.Column="1" Margin="5,5,5,1" VerticalAlignment="Center">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="173*"/>
+                            <ColumnDefinition Width="191*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="button_connect" Content="Connect" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35.96" Width="96.89" FontWeight="Bold" BorderBrush="#FF364055" Foreground="White" Background="{x:Null}" BorderThickness="3" Click="Button_connect_Click" Grid.Column="1">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Label x:Name="console" Content="" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Label.Resources>
+                                <Style TargetType="Label">
+                                    
+                                </Style>
+                            </Label.Resources>
+                        </Label>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>
