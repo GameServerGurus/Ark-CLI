@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ark_admin_manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="251.937" Width="800">
+        Title="Admin Manager" Height="251.937" Width="800" Icon="arkmageddon_icon.png">
     <Grid>
         <Rectangle Stroke="Black">
             <Rectangle.Fill>
