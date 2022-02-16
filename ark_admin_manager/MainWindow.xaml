@@ -43,7 +43,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <TextBlock x:Name="textbox_commands" TextWrapping="Wrap" Foreground="White" Margin="10,5,5,10"/>
+                    <TextBlock x:Name="textbox_commands" TextWrapping="Wrap" Foreground="White" Margin="10,5,5,10" FontSize="16"/>
                 </Grid>
             </Grid>
         </UserControl>
@@ -69,7 +69,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <TextBlock x:Name="textbox_connect" TextWrapping="Wrap" Foreground="White" Grid.Column="1" Margin="5,5,5,10"/>
+                    <TextBlock x:Name="textbox_connect" TextWrapping="Wrap" Foreground="White" Grid.Column="1" Margin="5,5,5,10" FontSize="16"/>
                 </Grid>
                 <Grid Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
