@@ -111,5 +111,8 @@
   <ItemGroup>
     <Resource Include="TextTemplate.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="arkmageddon_250_png.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
