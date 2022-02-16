@@ -35,7 +35,7 @@
                     <ColumnDefinition Width="553*"/>
                     <ColumnDefinition Width="239*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="button_send" Content="Send Command" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35.96" Width="197.89" FontWeight="Bold" BorderBrush="#FF364055" Foreground="White" Background="{x:Null}" BorderThickness="3" Click="Button_send_Click" Grid.Column="1" Margin="20.555,37.504">
+                <Button x:Name="button_send" Content="Send Command" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35.96" Width="197.89" FontWeight="Bold" BorderBrush="#FF364055" Foreground="White" Background="{x:Null}" BorderThickness="3" Click="Button_send_Click" Grid.Column="1" Margin="10">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10" />
@@ -75,20 +75,14 @@
                             <ColumnDefinition Width="135*"/>
                             <ColumnDefinition Width="418*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="button_connect" Content="Connect" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35.96" Width="96.89" FontWeight="Bold" BorderBrush="#FF364055" Foreground="White" Background="{x:Null}" BorderThickness="3" Click="Button_connect_Click">
+                        <Button x:Name="button_connect" Content="Connect" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35.96" Width="96.89" FontWeight="Bold" BorderBrush="#FF364055" Foreground="White" Background="{x:Null}" BorderThickness="3" Click="Button_connect_Click" Margin="10">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="10" />
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Label x:Name="messages" Content="" Foreground="White" Grid.Column="1">
-                            <Label.Resources>
-                                <Style TargetType="Label">
-
-                                </Style>
-                            </Label.Resources>
-                        </Label>
+                        <TextBlock x:Name="messages" TextWrapping="Wrap" Grid.Column="1" Foreground="White" Margin="5"/>
                     </Grid>
                 </Grid>
             </Grid>

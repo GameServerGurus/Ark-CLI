@@ -130,12 +130,12 @@ namespace ark_admin_manager
             if (!input_api.Text.Equals("API Url") && !input_key.Text.Equals("API Key") && !input_api.Text.Equals("") && !input_key.Equals(""))
             {
                 var result = authenticate(input_api.Text, input_key.Text);
-                messages.Content = result;
+                messages.Text = result;
                 this.authenticated = result.Equals("success");
             }
             else
             {
-                messages.Content = "Enter a valid Url and Key";
+                messages.Text = "Enter a valid Url and Key";
             }
         }
 
@@ -143,16 +143,16 @@ namespace ark_admin_manager
         {
             if (!this.authenticated || MainWindow.url.Equals("") || MainWindow.url.Equals(""))
             {
-                messages.Content = "You must authenticate the API Url and API key first";
+                messages.Text = "You must authenticate the API Url and API key first";
             }
             else if (!input_command.Text.Equals("Enter admin command here"))
             {
-                messages.Content = command(input_command.Text);
+                messages.Text = command(input_command.Text);
                 input_command.Text = "";
             }
             else if (input_command.Equals("") || input_command.Text.Equals("Enter admin command here"))
             {
-                messages.Content = "You must enter a command";
+                messages.Text = "You must enter a command";
             }
         }
 
