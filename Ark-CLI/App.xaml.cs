@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ark_admin_manager
+namespace Ark_CLI
 {
     /// <summary>
     /// Interaction logic for App.xaml

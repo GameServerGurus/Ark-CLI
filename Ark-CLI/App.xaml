@@ -1,7 +1,7 @@
-﻿<Application x:Class="ark_admin_manager.App"
+﻿<Application x:Class="Ark_CLI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ark_admin_manager"
+             xmlns:local="clr-namespace:Ark_CLI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

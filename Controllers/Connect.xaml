@@ -1,0 +1,56 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Controllers"
+             xmlns:Ark_CLI="clr-namespace:Ark_CLI;assembly=Components" x:Class="Controllers.Connect"
+             mc:Ignorable="d" Height="467" Width="586">
+    <Grid>
+        <Rectangle RadiusX="51.71" RadiusY="51.71" Fill="#FF181A1B"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Loading" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="18" Foreground="#FFE8E6E3" Padding="5,5,0,5"/>
+                <Label Grid.Column="1" Content="Productions" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFE8E6E3" FontSize="18" FontFamily="Arial" Padding="0,5,5,5"/>
+            </Grid>
+            <Label Grid.Column="1" Content="Log Into Your Account" Grid.Row="1" FontFamily="Arial Black" FontSize="20" Foreground="#FFE8E6E3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Ark_CLI:TextInput x:Name="username_control" Grid.Column="1" Grid.Row="2" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60"/>
+            <Ark_CLI:PasswordInput x:Name="password_control" Grid.Column="1" Grid.Row="3" MinWidth="200" MaxWidth="500" MaxHeight="60" MinHeight="30"/>
+
+            <Grid Grid.Column="1" Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="No Account?" Foreground="#FFA59D91" FontFamily="Arial" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label x:Name="link" Grid.Column="1" Content="Sign Up Here." Foreground="#FF55FBFF" VerticalContentAlignment="Center" FontFamily="Arial" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" MouseEnter="link_MouseEnter" MouseLeave="link_MouseLeave" MouseDown="link_MouseDown"/>
+            </Grid>
+            <Button x:Name="submit" Grid.Column="1" Grid.Row="4" FontFamily="Arial" FontSize="18" Background="#FF008588" BorderBrush="#FFE8E6E3" FontWeight="Bold" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Content="Log In" BorderThickness="2,2,2,2" Foreground="#FFE8E6E3" Click="submit_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>
