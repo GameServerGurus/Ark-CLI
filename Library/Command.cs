@@ -16,5 +16,12 @@ namespace Library
         public string? player_id { get; set; }
         public string? server_id { get; set; }
         public string? xuid { get; set; }
+
+        public Command()
+        {
+            this.code = "";
+            this.executed = false;
+            this.operation = "OTHER";
+        }
     }
 }

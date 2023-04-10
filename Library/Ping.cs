@@ -9,5 +9,6 @@ namespace Library
     public class Ping
     {
         public string connection { get; set; }
+        public Ping() { this.connection = "failed"; }
     }
 }
