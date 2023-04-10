@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Controllers\Controllers.csproj" />
+    <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
 
 </Project>

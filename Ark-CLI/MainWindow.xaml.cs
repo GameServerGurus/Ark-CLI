@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +14,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net.Http.Json;
+using System.Text.Json.Serialization;
+using System.Runtime.InteropServices.JavaScript;
+using System.Text.Json;
+using System.Security.Policy;
+using Library;
 
 namespace Ark_CLI
 {
@@ -49,13 +57,43 @@ namespace Ark_CLI
         {
             string username = connect_controller.Username;
             string password = connect_controller.Password;
-            if (username.Equals("loadingproductions") && password.Equals("password"))
+
+            Response<Ping> ping = Requests.get<Ping>("https://www.api.loadingproductions.com/ping");
+            if (ping.Ok && ping.Data != null && ping.Data.connection == "successful")
             {
-                connect_controller.Message = "Connection successful";
-                CurrentController = command_controller;
+                if (username.Equals("loadingproductions") && password.Equals("password"))
+                {
+                    connect_controller.Message = "Connection successful";
+                    CurrentController = command_controller;
+                }
+                else
+                    connect_controller.Message = "Username or Password is not correct.";
+            } else
+            {
+                connect_controller.Message = "The server is currently undergoing maintainence.";
             }
-            else
-                connect_controller.Message = "Username or Password is not correct.";
+        }
+
+        private void command_controller_SubmitClick(object sender, RoutedEventArgs e)
+        {
+            Response<Ping> ping = Requests.get<Ping>("https://www.api.loadingproductions.com/ping");
+            if (ping.Ok && ping.Data != null && ping.Data.connection == "successful")
+            {
+                Dictionary<string, string> dict_parameters = new Dictionary<string, string> { { "code", command_controller.Text } };
+                FormUrlEncodedContent parameters = new FormUrlEncodedContent(dict_parameters);
+                Response<Command>? command = Requests.post<Command>("https://api.loadingproductions.com/command", parameters);
+                if (command.Ok)
+                {
+                    command_controller.validated(true);
+                }
+                else
+                {
+                    command_controller.validated(false);
+                }
+            } else
+            {
+                command_controller.validated(false);
+            }
         }
     }
 }

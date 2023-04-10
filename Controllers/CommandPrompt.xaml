@@ -35,14 +35,30 @@
                 <Label Grid.Column="1" Content="Productions" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFE8E6E3" FontSize="18" FontFamily="Arial" Padding="0,5,5,5"/>
             </Grid>
             <Label Content="Enter your admin command:" Grid.Row="2" FontFamily="Arial Black" FontSize="20" Foreground="#FFE8E6E3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Ark_CLI:TextInput x:Name="command_control" Grid.Row="3" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Placeholder="Command"/>
-            <Button x:Name="submit" Grid.Row="4" FontFamily="Arial" FontSize="18" Background="#FF008588" BorderBrush="#FFE8E6E3" FontWeight="Bold" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Content="Submit" BorderThickness="2,2,2,2" Foreground="#FFE8E6E3">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="12" />
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Ark_CLI:TextInput x:Name="command_control" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Placeholder="Command" Grid.Column="1"/>
+                <Label x:Name="validator" Content="" Foreground="White" FontSize="18" FontWeight="Bold" FontFamily="Arial Black" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="submit" FontFamily="Arial" FontSize="18" Background="#FF008588" BorderBrush="#FFE8E6E3" FontWeight="Bold" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Content="Submit" BorderThickness="2,2,2,2" Foreground="#FFE8E6E3" Click="submit_Click" Grid.Column="1">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="12" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
             <Grid Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

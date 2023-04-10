@@ -91,7 +91,7 @@ namespace Controllers
         /*********** SubmitClick Event Handler ****************/
 
         public static readonly RoutedEvent SubmitClickEvent = EventManager.RegisterRoutedEvent(
-            name: "SubmitClick",
+            name: "Connect_SubmitClick", // Name must be a unique identifier
             routingStrategy: RoutingStrategy.Bubble,
             handlerType: typeof(RoutedEventHandler),
             ownerType: typeof(Connect)
