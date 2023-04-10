@@ -27,7 +27,7 @@ namespace Controllers
     {
         public string Text { get => command_control.Text; }
 
-        private Timer timer;
+        private Timer? timer;
 
         public CommandPrompt()
         {
