@@ -19,7 +19,7 @@ namespace Ark_CLI
     {
         public string Password {
             // Allows for the Connect.xaml to access this value.
-            get { return this.password_component.Password; }
+            get => this.password_component.Password; 
             set {
                 if (value.Length == 0)
                     this.password_placeholder.Visibility = Visibility.Visible;
@@ -31,8 +31,8 @@ namespace Ark_CLI
 
         public object Placeholder
         {
-            get { return this.password_placeholder.Content; }
-            set { this.password_placeholder.Content = value;  }
+            get => this.password_placeholder.Content;
+            set => this.password_placeholder.Content = value;
         }
 
         public PasswordInput()

@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ark_CLI"
-        xmlns:Controllers="clr-namespace:Controllers;assembly=Controllers" x:Class="Ark_CLI.MainWindow"
+        xmlns:Controllers="clr-namespace:Controllers;assembly=Controllers" 
+        x:Class="Ark_CLI.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="585" Width="657">
+        Title="MainWindow" Background="{x:Null}" Foreground="{x:Null}" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Controllers:Connect/>
+        <Controllers:CommandPrompt x:Name="command_controller" Width="600" Height="400" Uid="command_controller"/>
+        <Controllers:Connect x:Name="connect_controller" SubmitClick="connect_controller_SubmitClick" Width="500" Height="400" d:IsHidden="True" Uid="connect_controller"/>
     </Grid>
 </Window>

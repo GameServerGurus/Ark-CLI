@@ -19,7 +19,7 @@ namespace Ark_CLI
     {
         public string Text
         {
-            get { return textbox_component.Text; }
+            get => this.textbox_component.Text;
             set {
                 if (value.Length == 0)
                     this.textbox_placeholder.Visibility = Visibility.Visible;
@@ -31,8 +31,8 @@ namespace Ark_CLI
 
         public object Placeholder
         {
-            get { return this.textbox_placeholder.Content; }
-            set { textbox_placeholder.Content = value; }
+            get => this.textbox_placeholder.Content;
+            set => this.textbox_placeholder.Content = value;
         }
 
         public TextInput()
