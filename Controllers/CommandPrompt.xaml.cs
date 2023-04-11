@@ -25,7 +25,7 @@ namespace Controllers
     /// </summary>
     public partial class CommandPrompt : UserControl
     {
-        public string Text { get => command_control.Text; }
+        public string Text { get => command_control.Text; set => command_control.Text = value; }
 
         private Timer? timer;
 
@@ -76,17 +76,6 @@ namespace Controllers
                 timer.Change(2000, Timeout.Infinite);
         }
 
-        private void submit_Click(object sender, RoutedEventArgs e)
-        {
-            submit.IsEnabled = false;
-            if (command_control.Text.Length > 0)
-                RaiseSubmitClickRoutedEvent();
-            // Trigger the SubmitClick event.
-            // This event is registered in the properties to be used.
-            
-            command_control.Text = "";
-            submit.IsEnabled = true;
-        }
 
         /*********** SubmitClick Event Handler ****************/
 
@@ -97,16 +86,26 @@ namespace Controllers
             ownerType: typeof(Connect)
         );
 
-        public event RoutedEventHandler SubmitClick
+        private void submit_Click(object sender, RoutedEventArgs e)
         {
-            add { AddHandler(SubmitClickEvent, value); }
-            remove { RemoveHandler(SubmitClickEvent, value); }
+            submit.IsEnabled = false;
+            if (command_control.Text.Length > 0)
+            {
+                // Trigger the SubmitClick event.
+                // This event is registered in the properties to be used.
+                RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: SubmitClickEvent);
+                RaiseEvent(routedEventArgs);
+            }
+
+            //command_control.Text = "";
+            submit.IsEnabled = true;
         }
 
-        void RaiseSubmitClickRoutedEvent()
+        public event RoutedEventHandler SubmitClick
         {
-            RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: SubmitClickEvent);
-            RaiseEvent(routedEventArgs);
+            // Registers the name "SubmitClick" into the event properties
+            add { AddHandler(SubmitClickEvent, value); }
+            remove { RemoveHandler(SubmitClickEvent, value); }
         }
     }
 }

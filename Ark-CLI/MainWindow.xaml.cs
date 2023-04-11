@@ -20,6 +20,7 @@ using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
 using System.Security.Policy;
 using Library;
+using System.Text.Json.Nodes;
 
 namespace Ark_CLI
 {
@@ -80,8 +81,9 @@ namespace Ark_CLI
             if (ping.Ok && ping.Data != null && ping.Data.connection == "successful")
             {
                 Dictionary<string, string> dict_parameters = new Dictionary<string, string> { { "code", command_controller.Text } };
-                FormUrlEncodedContent parameters = new FormUrlEncodedContent(dict_parameters);
-                Response<Command>? command = Requests.post<Command>("https://api.loadingproductions.com/command", parameters);
+                JsonObject json = new JsonObject();
+                json.Add("code", command_controller.Text);
+                Response<Command>? command = Requests.post<Command>("https://api.loadingproductions.com/command", json.ToString());
                 if (command.Ok)
                 {
                     command_controller.validated(true);
