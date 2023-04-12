@@ -9,7 +9,7 @@
   <Identity
     Name="56950Zed3kiah.ArkAdminManager"
     Publisher="CN=E0980CD6-26C9-4605-9276-28A765335A5D"
-    Version="1.0.3.0" />
+    Version="1.0.6.0" />
 
   <Properties>
     <DisplayName>ArkAdminManager</DisplayName>

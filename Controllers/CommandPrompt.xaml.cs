@@ -88,6 +88,7 @@ namespace Controllers
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
+            command_control.IsEnabled = false;
             submit.IsEnabled = false;
             if (command_control.Text.Length > 0)
             {
@@ -97,7 +98,7 @@ namespace Controllers
                 RaiseEvent(routedEventArgs);
             }
 
-            //command_control.Text = "";
+            command_control.Text = "";
             submit.IsEnabled = true;
         }
 
@@ -106,6 +107,24 @@ namespace Controllers
             // Registers the name "SubmitClick" into the event properties
             add { AddHandler(SubmitClickEvent, value); }
             remove { RemoveHandler(SubmitClickEvent, value); }
+        }
+
+        private void command_control_EnterKeyDown(object sender, RoutedEventArgs e)
+        {
+            submit.IsEnabled = false;
+            command_control.IsEnabled = false;
+            if (command_control.Text.Length > 0)
+            {
+                // Trigger the SubmitClick event.
+                // This event is registered in the properties to be used.
+                RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: SubmitClickEvent);
+                RaiseEvent(routedEventArgs);
+            }
+
+            command_control.Text = "";
+            command_control.IsEnabled = true;
+            submit.IsEnabled = true;
+            command_control.Focus();
         }
     }
 }

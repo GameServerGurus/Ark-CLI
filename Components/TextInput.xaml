@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
             <Label x:Name="textbox_placeholder" Grid.Column="1" Content="Username" Grid.Row="1" VerticalContentAlignment="Center" FontSize="16" FontFamily="Arial" Foreground="#FFA0A0A0"/>
 
-            <TextBox x:Name="textbox_component" TextWrapping="Wrap" Grid.Row="1" Background="{x:Null}" Foreground="#FFE8E6E3" BorderBrush="{x:Null}" FontSize="16" FontFamily="Arial" Grid.Column="1" VerticalContentAlignment="Center" SelectionBrush="#FF008588" BorderThickness="0,0,0,0" GotFocus="textbox_component_GotFocus" LostFocus="textbox_component_LostFocus" SelectionTextBrush="{x:Null}" CaretBrush="#FF008588"/>
+            <TextBox x:Name="textbox_component" TextWrapping="Wrap" Grid.Row="1" Background="{x:Null}" Foreground="#FFE8E6E3" BorderBrush="{x:Null}" FontSize="16" FontFamily="Arial" Grid.Column="1" VerticalContentAlignment="Center" SelectionBrush="#FF008588" BorderThickness="0,0,0,0" GotFocus="textbox_component_GotFocus" LostFocus="textbox_component_LostFocus" SelectionTextBrush="{x:Null}" CaretBrush="#FF008588" KeyDown="textbox_component_KeyDown"/>
 
         </Grid>
     </Grid>

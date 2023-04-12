@@ -27,7 +27,7 @@ namespace Library
             HttpClient client = createJsonHttpClient();
 
             //HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            HttpResponseMessage response = client.PostAsync(url, parameters).Result;
+            Task<HttpResponseMessage> response = client.PostAsync(url, parameters);
             
             Response<T> result = new Response<T>(response);
 
@@ -38,13 +38,13 @@ namespace Library
             return result;
         }
 
-        public static Response<T> post<T>(string url, string json)
+        public static Response<T> post<T>(string url, JsonObject json)
         {
             HttpClient client = createJsonHttpClient();
 
             //HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PostAsync(url, content).Result;
+            var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            Task<HttpResponseMessage> response = client.PostAsync(url, content);
 
             Response<T> result = new Response<T>(response);
 
@@ -60,7 +60,7 @@ namespace Library
             HttpClient client = createJsonHttpClient();
 
             // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            HttpResponseMessage response = client.GetAsync(url).Result;
+            Task<HttpResponseMessage> response = client.GetAsync(url);
             
             Response<T> result = new Response<T>(response);
 
@@ -76,7 +76,7 @@ namespace Library
             HttpClient client = createJsonHttpClient();
 
             //HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            HttpResponseMessage response = client.PatchAsync(url, parameters).Result;
+            Task<HttpResponseMessage> response = client.PatchAsync(url, parameters);
 
             Response<T> result = new Response<T>(response);
 
@@ -87,13 +87,13 @@ namespace Library
             return result;
         }
 
-        public static Response<T> patch<T>(string url, string json)
+        public static Response<T> patch<T>(string url, JsonObject json)
         {
             HttpClient client = createJsonHttpClient();
 
             //HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PatchAsync(url, content).Result;
+            var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            Task<HttpResponseMessage> response = client.PatchAsync(url, content);
 
             Response<T> result = new Response<T>(response);
 
@@ -109,7 +109,7 @@ namespace Library
             HttpClient client = createJsonHttpClient();
 
             //HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            HttpResponseMessage response = client.DeleteAsync(url).Result;
+            Task<HttpResponseMessage> response = client.DeleteAsync(url);
 
             Response<T> result = new Response<T>(response);
 

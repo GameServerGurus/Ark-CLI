@@ -13,6 +13,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Controllers:CommandPrompt x:Name="command_controller" Width="600" Height="400" Uid="command_controller" SubmitClick="command_controller_SubmitClick"/>
-        <Controllers:Connect x:Name="connect_controller" SubmitClick="connect_controller_SubmitClick" Width="500" Height="400" d:IsHidden="True" Uid="connect_controller"/>
+        <Controllers:Connect x:Name="connect_controller" SubmitClick="connect_controller_SubmitClick" Width="500" Height="400" Uid="connect_controller"/>
+        <Controllers:DevCommandPrompt x:Name="developer_controller"/>
     </Grid>
 </Window>

@@ -21,7 +21,7 @@ namespace Ark_CLI
         {
             get => this.textbox_component.Text;
             set {
-                if (value.Length == 0)
+                if (value.Length == 0 && !this.textbox_component.IsFocused)
                     this.textbox_placeholder.Visibility = Visibility.Visible;
                 else
                     this.textbox_placeholder.Visibility = Visibility.Collapsed;
@@ -50,6 +50,34 @@ namespace Ark_CLI
         {
             if (this.Text.Length == 0)
                 textbox_placeholder.Visibility = Visibility.Visible;
+        }
+
+
+        /*********** EnterKeyDown Event Handler ****************/
+        
+        public static readonly RoutedEvent EnterKeyDownEvent = EventManager.RegisterRoutedEvent(
+            name: "TextInputComponent_EnterKeyDown", // Name must be a unique identifier
+            routingStrategy: RoutingStrategy.Bubble,
+            handlerType: typeof(KeyEventHandler),
+            ownerType: typeof(TextInput)
+        );
+
+        private void textbox_component_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                // Trigger the EnterKeyDown event.
+                // This event is registered in the properties to be used.
+                RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: EnterKeyDownEvent);
+                RaiseEvent(routedEventArgs);
+            }
+        }
+
+        public event RoutedEventHandler EnterKeyDown
+        {
+            // Registers the name "EnterKeyDown" into the event properties
+            add { AddHandler(EnterKeyDownEvent, value); }
+            remove { RemoveHandler(EnterKeyDownEvent, value); }
         }
     }
 }

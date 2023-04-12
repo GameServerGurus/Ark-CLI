@@ -21,7 +21,7 @@ namespace Ark_CLI
             // Allows for the Connect.xaml to access this value.
             get => this.password_component.Password; 
             set {
-                if (value.Length == 0)
+                if (value.Length == 0 && !this.password_component.IsFocused)
                     this.password_placeholder.Visibility = Visibility.Visible;
                 else
                     this.password_placeholder.Visibility = Visibility.Collapsed;
@@ -50,6 +50,33 @@ namespace Ark_CLI
         {
             if (this.Password.Length == 0)
                 password_placeholder.Visibility = Visibility.Visible;
+        }
+
+        /*********** EnterKeyDown Event Handler ****************/
+
+        public static readonly RoutedEvent EnterKeyDownEvent = EventManager.RegisterRoutedEvent(
+            name: "PasswordInputComponent_EnterKeyDown", // Name must be a unique identifier
+            routingStrategy: RoutingStrategy.Bubble,
+            handlerType: typeof(KeyEventHandler),
+            ownerType: typeof(TextInput)
+        );
+
+        private void password_component_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                // Trigger the EnterKeyDown event.
+                // This event is registered in the properties to be used.
+                RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: EnterKeyDownEvent);
+                RaiseEvent(routedEventArgs);
+            }
+        }
+
+        public event RoutedEventHandler EnterKeyDown
+        {
+            // Registers the name "EnterKeyDown" into the event properties
+            add { AddHandler(EnterKeyDownEvent, value); }
+            remove { RemoveHandler(EnterKeyDownEvent, value); }
         }
     }
 }

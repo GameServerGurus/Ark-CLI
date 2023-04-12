@@ -34,7 +34,7 @@
             </Grid>
             <Label Grid.Column="1" Content="Log Into Your Account" Grid.Row="1" FontFamily="Arial Black" FontSize="20" Foreground="#FFE8E6E3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Ark_CLI:TextInput x:Name="username_control" Grid.Column="1" Grid.Row="2" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60"/>
-            <Ark_CLI:PasswordInput x:Name="password_control" Grid.Column="1" Grid.Row="3" MinWidth="200" MaxWidth="500" MaxHeight="60" MinHeight="30"/>
+            <Ark_CLI:PasswordInput x:Name="password_control" Grid.Column="1" Grid.Row="3" MinWidth="200" MaxWidth="500" MaxHeight="60" MinHeight="30" EnterKeyDown="password_control_EnterKeyDown"/>
             <Button x:Name="submit" Grid.Column="1" Grid.Row="4" FontFamily="Arial" FontSize="18" Background="#FF008588" BorderBrush="#FFE8E6E3" FontWeight="Bold" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Content="Log In" BorderThickness="2,2,2,2" Foreground="#FFE8E6E3" Click="submit_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">

@@ -56,15 +56,6 @@ namespace Controllers
             InitializeComponent();
         }
 
-        private void submit_Click(object sender, RoutedEventArgs e)
-        {
-            submit.IsEnabled = false;
-            // Trigger the SubmitClick event.
-            // This event is registered in the properties to be used.
-            RaiseSubmitClickRoutedEvent();
-            submit.IsEnabled = true;
-        }
-
         private void link_MouseEnter(object sender, MouseEventArgs e)
         {
             Color color = (Color) ColorConverter.ConvertFromString("#00585A");
@@ -103,11 +94,24 @@ namespace Controllers
             remove { RemoveHandler(SubmitClickEvent, value);}
         }
 
-        void RaiseSubmitClickRoutedEvent()
+        private void submit_Click(object sender, RoutedEventArgs e)
         {
+            submit.IsEnabled = false;
+            // Trigger the SubmitClick event.
+            // This event is registered in the properties to be used.
             RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: SubmitClickEvent);
             RaiseEvent(routedEventArgs);
+            submit.IsEnabled = true;
         }
 
+        private void password_control_EnterKeyDown(object sender, RoutedEventArgs e)
+        {
+            submit.IsEnabled = false;
+            // Trigger the SubmitClick event.
+            // This event is registered in the properties to be used.
+            RoutedEventArgs routedEventArgs = new RoutedEventArgs(routedEvent: SubmitClickEvent);
+            RaiseEvent(routedEventArgs);
+            submit.IsEnabled = true;
+        }
     }
 }

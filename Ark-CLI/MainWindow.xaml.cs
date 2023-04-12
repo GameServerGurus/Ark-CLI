@@ -51,6 +51,7 @@ namespace Ark_CLI
             InitializeComponent();
             controls.Add(connect_controller);
             controls.Add(command_controller);
+            controls.Add(developer_controller);
             CurrentController = connect_controller;
         }
 
@@ -59,20 +60,18 @@ namespace Ark_CLI
             string username = connect_controller.Username;
             string password = connect_controller.Password;
 
-            Response<Ping> ping = Requests.get<Ping>("https://www.api.loadingproductions.com/ping");
-            if (ping.Ok && ping.Data != null && ping.Data.connection == "successful")
+            if (username.Equals("loadingproductions") && password.Equals("password"))
             {
-                if (username.Equals("loadingproductions") && password.Equals("password"))
-                {
-                    connect_controller.Message = "Connection successful";
-                    CurrentController = command_controller;
-                }
-                else
-                    connect_controller.Message = "Username or Password is not correct.";
-            } else
-            {
-                connect_controller.Message = "The server is currently undergoing maintainence.";
+                connect_controller.Message = "Connection successful";
+                CurrentController = command_controller;
             }
+            else if (username.Equals("developer") && password.Equals("password"))
+            {
+                connect_controller.Message = "Connection successful";
+                CurrentController = developer_controller;
+            }
+            else
+                connect_controller.Message = "Username or Password is not correct.";
         }
 
         private void command_controller_SubmitClick(object sender, RoutedEventArgs e)
@@ -80,18 +79,9 @@ namespace Ark_CLI
             Response<Ping> ping = Requests.get<Ping>("https://www.api.loadingproductions.com/ping");
             if (ping.Ok && ping.Data != null && ping.Data.connection == "successful")
             {
-                Dictionary<string, string> dict_parameters = new Dictionary<string, string> { { "code", command_controller.Text } };
-                JsonObject json = new JsonObject();
-                json.Add("code", command_controller.Text);
-                Response<Command>? command = Requests.post<Command>("https://api.loadingproductions.com/command", json.ToString());
-                if (command.Ok)
-                {
-                    command_controller.validated(true);
-                }
-                else
-                {
-                    command_controller.validated(false);
-                }
+                JsonObject json = new JsonObject() { { "code", this.command_controller.Text } };       //json.Add("code", this.Text);
+                Response<Command>? command = Requests.post<Command>("https://api.loadingproductions.com/command", json);
+                command_controller.validated(command.Ok);
             } else
             {
                 command_controller.validated(false);

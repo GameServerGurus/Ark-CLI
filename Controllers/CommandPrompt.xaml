@@ -42,7 +42,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Ark_CLI:TextInput x:Name="command_control" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Placeholder="Command" Grid.Column="1"/>
+                <Ark_CLI:TextInput x:Name="command_control" MinWidth="200" MinHeight="30" MaxWidth="500" MaxHeight="60" Placeholder="Command" Grid.Column="1" EnterKeyDown="command_control_EnterKeyDown"/>
                 <Label x:Name="validator" Content="" Foreground="White" FontSize="18" FontWeight="Bold" FontFamily="Arial Black" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="4">
